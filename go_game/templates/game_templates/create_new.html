@@ -1,0 +1,23 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Новая игра{% endblock %}
+
+{% block content %}
+  <h1>Создать новую игру</h1>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <p>
+      <label for="id_board_size">Размер доски:</label>
+      {{ form.board_size }}
+    </p>
+
+    <p>
+      <label for="id_color">Цвет:</label>
+      {{ form.color }}
+    </p>
+
+    <button type="submit">Создать</button>
+  </form>
+{% endblock %}

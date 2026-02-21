@@ -1,0 +1,22 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+  <h1>Простая игра в го</h1>
+
+  <p>
+    <a href="{% url 'game:new_game' %}">Создать новую игру</a>
+  </p>
+
+  <h2>20 последних игр</h2>
+  {% if recent_games %}
+    <ul>
+      {% for game in recent_games %}
+        <li>{{ game.title }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Игр пока нет</p>
+  {% endif %}
+{% endblock %}
